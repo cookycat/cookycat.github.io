@@ -1,0 +1,10 @@
+<THIS FILE IS FOR VALIDATION PURPOSES ONLY. CHANGING THIS FILE HAS NO IMPACT ON THE CONFIGURATION>
+{
+    "expirationDate":  "2050-01-30",
+    "appDomains":  [
+                       "expweb.dev.visualcomponents.com"
+                   ],
+    "fileDomains":  [
+                        "expweb.dev.visualcomponents.com"
+                    ]
+}
