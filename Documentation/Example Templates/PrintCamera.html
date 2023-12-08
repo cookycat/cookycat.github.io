@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    #camera-button {
+      display: block;
+      margin: 1em auto;
+    }
+  </style>
+    <title>Visual Components Experience Web</title>
+  </head>
+  <body style="text-align: center">
+    <canvas id="unity-canvas" style="width: 960px; height: 600px; background: #231F20"></canvas>
+    <script src="Build/experience-web.loader.js"></script>
+    <script>
+      let config = JSON.stringify({
+        // To run the animation file from your site:
+        // FileURL: "https://[your site]/Animations/ExampleAnimation.vcax",
+        // To run it locally:
+        FileURL: "http://localhost:8000/Animations/ExampleAnimation.vcax",
+        UI: {
+          ShowOnScreenCameraControls: true,
+          ShowCameraAnimationControlToggle: true
+        },
+        Camera: {"CenterOfInterest":{"x":0.0,"y":0.0,"z":0.0},"Distance":10.0,"Pitch":20.0,"Yaw":0.0}
+      });
+      createUnityInstance(document.querySelector("#unity-canvas"), {
+        dataUrl: "Build/experience-web.data",
+        frameworkUrl: "Build/experience-web.framework.js",
+        codeUrl: "Build/experience-web.wasm",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "Visual Components",
+        productName: "ExperienceWeb",
+        productVersion: "20230704.37",
+        // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
+        // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
+      }).then(unityInstance => {
+        unityInstance.SendMessage("ConfigurationManager", "LoadConfiguration", config);
+
+        // Creates the camera configuration button
+        const button = document.createElement("button");
+        button.innerHTML = "Print camera configuration";
+        button.id = "camera-button";
+        // Adds the selector to the webpage 
+        document.body.appendChild(button);
+        // Creates an event that listens to the click of the button.
+        // When the button is clicked the configuration of the camera is printed in the browser's console
+        button.addEventListener("click", event => {
+          unityInstance.SendMessage("OrbitCamera", "Print");
+        });
+    });  
+    </script>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+<THIS FILE IS FOR VALIDATION PURPOSES ONLY. CHANGING THIS FILE HAS NO IMPACT ON THE CONFIGURATION>
+{
+    "expirationDate":  "2024-12-31",
+    "appDomains":  [
+                       "cookycat.github.io"
+                   ],
+    "fileDomains":  [
+                        "cookycat.github.io"
+                    ]
+}
