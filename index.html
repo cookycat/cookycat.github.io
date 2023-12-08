@@ -59,7 +59,7 @@
         // Fills the option with the urls set above
         urls.forEach(url => {
           const option = document.createElement("option");
-          let an_name = url.slice(37);
+          let an_name = url.slice(38);
           an_name = an_name.replace(".vcax", "");
           option.innerHTML = an_name;
           select.appendChild(option);
