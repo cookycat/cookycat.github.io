@@ -56,7 +56,7 @@
         // Creates animation dropdown menu
         const select = document.createElement("select");
         select.id = "option-selector";
-        select.setAttribute("class", "dropdown-menu")
+        select.classList.add("dropdown-menu", "btn", "btn-secondary")
 
         // Fills the option with the urls set above
         urls.forEach(url => {
@@ -64,7 +64,7 @@
           let an_name = url.slice(38);
           an_name = an_name.replace(".vcax", "");
           option.innerHTML = an_name;
-          option.setAttribute("class", "dropdown-item")
+          option.classList.add("dropdown-item")
           select.appendChild(option);
         });
         // Adds the selector to the webpage 
